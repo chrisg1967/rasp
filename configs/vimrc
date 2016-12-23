@@ -1,0 +1,54 @@
+execute pathogen#infect()
+
+" Allow backspacing over autoindent, line breaks and start of insert action
+set backspace=indent,eol,start
+
+" Allow backspacing over autoindent, line breaks and start of insert action
+" set autoindent
+
+" Stop certain movements from always going to the first character of a line.
+" While this behaviour deviates from that of Vi, it does what most users
+" coming from other editors would expect.
+set nostartofline
+
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
+
+" Indentation settings for using 2 spaces instead of tabs.
+" Do not change 'tabstop' from its default value of 8 with this setup.
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set background=dark
+
+" Stop vim from making backup files
+set nobackup
+set noswapfile
+
+syntax on
+filetype plugin indent on
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+:map <Home> ^  
+:imap <Home> <Esc>^i
+
+" Automatically toggle paste/nopaste mode when pasting
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
+endfunction

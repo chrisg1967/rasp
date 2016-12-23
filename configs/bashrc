@@ -1,0 +1,25 @@
+# .bashrc
+
+force_color_prompt=yes
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ccat='pygmentize -g'
+alias cim='vim'
+alias vi='vim'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+source ~/git-prompt.sh
+
+#PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ ";'$PROMPT_COMMAND
+export PROMPT_COMMAND='__git_ps1 "\\[\[\e[0;32m\]\u@\h \[\e[0;33m\]\w" " \[\e[1;34m\]\n\$\[\e[0m\] ";'$PROMPT_COMMAND
+
+# thefuck alias
+eval "$(thefuck --alias)"
