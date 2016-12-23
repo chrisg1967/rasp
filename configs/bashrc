@@ -10,6 +10,7 @@ alias mv='mv -i'
 alias ccat='pygmentize -g'
 alias cim='vim'
 alias vi='vim'
+alias ll='ls -l'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
